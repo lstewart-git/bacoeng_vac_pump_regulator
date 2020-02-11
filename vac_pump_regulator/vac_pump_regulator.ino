@@ -67,8 +67,8 @@ void setup()
   // get initial light level
   myCDS.Update();
   init_light_val = myCDS.photoresistor_value;
-  // set trigger above init value
-  trigger_level = init_light_val + 50;
+  // set trigger below init value
+  trigger_level = init_light_val - 100;
   show_logo();
 }
 //   ///////////////// MAIN PROGRAM LOOP     //////////////
@@ -84,7 +84,7 @@ void loop()
       if (button1.state_flag == 0){
       // keep pump power off in state 0 (initial setup)  
       digitalWrite(relay_pin, LOW);
-      trigger_level = init_light_val + 50 + (button2.state_flag * 50); 
+      trigger_level = init_light_val + 50 - (button2.state_flag * 50); 
         if ( trigger_level > 1023 ){
           trigger_level = init_light_val + 50;
         }
