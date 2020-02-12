@@ -2,6 +2,7 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BMP085_U.h>
 #include "LowPower.h"
+#include <les_button_v2.h>
 
 /*    You should also assign a unique ID to this sensor for use with
    the Adafruit Sensor API so that you can identify this particular
@@ -17,7 +18,10 @@
    Connect GROUND to common ground
 
 */
-   
+
+
+//instantiate breadboard objects
+les_button_v2 button(5, 350, 11);  //trigger level changer
 Adafruit_BMP085_Unified bmp = Adafruit_BMP085_Unified(10085);
 
 // program variables
